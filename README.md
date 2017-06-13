@@ -1,0 +1,4 @@
+# Quincy Cohert Codeup Web Exercises
+
+ This is my personal repository of web exercises
+ I've completed during my amazing time at Codeup covering HTML5, CSS3, Bootstrap and Javascript!

@@ -1,0 +1,17 @@
+h1 {
+    color: navy;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h2 {
+    color: navy;
+    text-decoration: underline;
+    text-align: ;
+}
+body { 
+    background-image: "img/building.jpeg";
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+} 

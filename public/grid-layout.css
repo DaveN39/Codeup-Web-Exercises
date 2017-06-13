@@ -1,0 +1,73 @@
+html {
+	box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+    .column.one-third,
+    .column.one-half {
+        width: 100%;
+    }
+}
+
+.container {
+	margin: 0 auto;
+	height: 1000px;
+	width: 80%;
+	max-width: 1200px;
+	
+}
+
+.row {
+	width: 100%;
+	background-color: gray;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+	box-shadow: inset 0 0 0 1px black;
+}
+
+.column.one-half {
+	float:left;
+	padding: 3.5% 0% ;
+	width: 50%;
+	margin: 0px;
+	background-color: lime;
+}
+
+.column.one-third {
+	float:left;
+	padding: 3.5% 0%;
+	width: 33.33%;
+	margin: 0px;
+	background-color: blue;
+}
+
+.column.one-fourth {
+	float:left;
+	padding: 3.5% 0%;
+	width: 25%;
+	margin: 0px;
+	background-color: yellow;
+}
+
+.column.one-sixth {
+	float:left;
+	padding: 3.5% 0%;
+	width: 16.66%;
+	margin: 0px;
+	background-color: orange;
+}
+
+.column.one-eigth {
+	float:left;
+	padding: 3.5% 0%;
+	width: 12.5%;
+	margin: 0px;
+	background-color: red;
+}
