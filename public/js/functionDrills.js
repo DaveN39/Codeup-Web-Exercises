@@ -74,18 +74,18 @@ function multiply(a, b){
 // Write a divide(numerator, denominator) function that returns a divided by b
 
 function divide(numerator, denominator){
-  var gcd = function gcd(a,b){
-    return b ? gcd(b, a%b) : a;
+  var divide = function divide(numerator,denominator){
+    return denominator ? gcd(denominator, numerator%denominator) : numerator;
   };
-  gcd = gcd(numerator,denominator);
-  return [numerator/gcd, denominator/gcd];
+  divide = divide(numerator,denominator);
+  return [numerator/divide, denominator/divide];
 }
 
 // Write a remainder(number, divisor) function that returns the remainder left over when dividing `number` by the `divisor`
 
 function remainder(number, divisor){
-	var remainder = x % y;
-	return (x - remainder) / y;
+	var remainder = number % divisor;
+	return (number - remainder) / divisor;
 }
 
 // Write the function `square(a)` that takes in a number and returns the number multiplied by itself.
