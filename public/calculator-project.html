@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="calculator-project.css">
+	<script type = "text/javascript" src="calculator-project.js"></script>
+</head>
+<body>
+	<div class="box">
+	<div class="display"><input type="text" readonly size="30" id="d"></div>
+	<div class="display"><input type="text" readonly size="30" id="d"></div>
+	<div class="display"><input type="text" readonly size="30" id="d"></div>
+	<div class="keys">
+
+    <p>
+    	<input type="button" class="button black" value="AC" onclick='ac("")'>
+    	<input type="button" class="button black" value="C" onclick='c("")'>
+    	<input type="button" class="button black" value="%" onclick='v()'>
+    	<input type="button" class="button gray" value="/" onclick='v("/")'>
+    </p>
+
+    <p>
+    	<input type="button" class="button blue" value="7" onclick='v("7")'>
+    	<input type="button" class="button blue" value="8" onclick='v("8")'>
+    	<input type="button" class="button blue" value="9" onclick='v("9")'>
+    	<input type="button" class="button gray" value="*" onclick='v("*")'>
+    </p>
+
+    <p>
+    	<input type="button" class="button blue" value="4" onclick='v("4")'>
+    	<input type="button" class="button blue" value="5" onclick='v("5")'>
+    	<input type="button" class="button blue" value="6" onclick='v("6")'>
+    	<input type="button" class="button gray" value="-" onclick='v("-")'>
+    </p>
+
+    <p>
+    	<input type="button" class="button blue" value="1" onclick='v("1")'>
+    	<input type="button" class="button blue" value="2" onclick='v("2")'>
+    	<input type="button" class="button blue" value="3" onclick='v("3")'>
+    	<input type="button" class="button gray" value="+" onclick='v("+")'>
+    </p>
+
+    <p>
+    	<input type="button" class="button blue" value="mc" onclick='v()'>
+    	<input type="button" class="button blue" value="0" onclick='v("0")'>
+    	<input type="button" class="button blue" value="." onclick='v(".")'>
+    	<input type="button" class="button gray" value="=" onclick='e()'>
+    </p>
+
+	</div>
+	</div>
+</body>
+</html>

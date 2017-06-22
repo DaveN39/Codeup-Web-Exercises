@@ -12,46 +12,49 @@
         console.log("---- ---- ---- ----");
     }
 
-    function logPlanets();
+    logPlanets();
 
     console.log('Adding "The Sun" to the beginning of the planets array.');
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function planets.unshift("Sun");
+    planets.unshift("Sun");
+    logPlanets();
 
     console.log('Adding "Pluto" to the end of the planets array.');
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function planets.push("Pluto");
+    planets.push("Pluto");
 
     console.log('Removing "The Sun" from the beginning of the planets array.');
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function planets.shift("Sun");
+    planets.shift("Sun");
 
     console.log('Removing "Pluto" from the end of the planets array.');
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function planets.pop("Pluto");
+    planets.pop("Pluto");
 
     console.log('Finding and logging the index of "Earth" in the planets array.');
-    console.log("Earth is at the index of " + plantets.indexOf("Earth"));
+    console.log("Earth is at the index of " + planets.indexOf("Earth"));
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
 
     console.log('Using splice to remove the planet after "Earth".');
     var indexOfEarth = planets.indexOf("Earth");
-    logPlanets(planets.splice(indexOf + 1, 1))
+    planets.splice(indexOfEarth + 1, 1);
+    logPlanets();
+    
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function logPlanets();
 
     console.log('Using splice to add back the planet after "Earth".');
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function logPlanets();
-
-    console.log(".reverse");
-    plantes.reverse()
+    planets.splice(planets.indexOf("Earth") + 1, 0, "Mars");
     logPlanets();
-    // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function logPlanets();
 
-    console.log(".sort");
+    console.log("Reversing the order of the planets array.");
+    planets.reverse()
+    logPlanets();
+    
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
-    function logPlanets();
+    console.log("Sorting the planets array.");
+    planets.sort();
+    // TODO: Read the console.log() statement above. Write code to perform the step it describes.
+    logPlanets();
 
 })();

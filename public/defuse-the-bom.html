@@ -13,37 +13,29 @@
 (function() {
     "use strict";
 
-    var detonationTimer = 5;
-
-//     var count = 0;
-// var max = 10;
-// var interval = 1000; // interval time in milliseconds
-
-// var intervalId = setInterval(function () {
-//     if (count >= max) {
-//         clearInterval(intervalId);
-//         console.log('All done');
-//     } else {
-//         count++;
-//         console.log('Repeating this line ' + count);
-//     }
-// }, interval);
+var detonationTimer = 5;
 
     // TODO: This function needs to be called once every second
+    
     function updateTimer() {
         if (detonationTimer == 0) {
             alert('EXTERMINATE!');
             document.body.innerHTML = '';
+            defuseTheBOM();
         } else if (detonationTimer > 0) {
+            detonationTimer;
             document.getElementById('timer').innerHTML = detonationTimer;
         }
-
         detonationTimer--;
+        console.log(detonationTimer);
     }
+    var intervalId = setInterval(updateTimer, 1000);
+
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
+        clearInterval(intervalId);
 
     }
 
