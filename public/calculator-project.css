@@ -1,15 +1,67 @@
+#firstInput {
+    background-color:lime;
+    height:50px;
+    width:355px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    border: solid;
+    border-radius:2px;
+    position:relative;
+    top:5px;
+    left:0%;
+}
 
-.box {
-background-color:#3d4543;
-height:800px;
-width:800px;
-border-radius:0px;
-position:relative;
-top:5px;
-left:0%;
+#opInput {
+    background-color:lime;
+    height:50px;
+    width:355px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    border: solid;
+    border-radius:2px;
+    position:relative;
+    top:5px;
+    left:0%;
+
+
+}
+
+#lastInput {
+    background-color:lime;
+    height:50px;
+    width:355px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    border: solid;
+    border-radius:2px;
+    position:relative;
+    top:5px;
+    left:0%;
+
 } 
-.button {
+
+.number {
     background-color: navy;
+    border: solid;
+    color: lime;
+    padding: 20px 25px;
+    text-align: center;
+    font-style: normal;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 4px;
+    cursor: pointer;
+    width: 10%;
+}
+#Eql {
+    background-color: purple;
     border: solid;
     color: orange;
     padding: 20px 25px;
@@ -22,11 +74,12 @@ left:0%;
     cursor: pointer;
     width: 10%;
 }
-.button.black {
-    background-color: black;
+
+#Clr {
+    background-color: red;
     border: solid;
-    color: red;
-    padding: 20px 25px;
+    color: white;
+    padding: 15px 60px;
     text-align: center;
     font-style: normal;
     display: inline-block;
@@ -36,7 +89,7 @@ left:0%;
     cursor: pointer;
     width: 10%;
 }
-.button.gray {
+.operator {
     background-color: gray;
     border: solid;
     color: yellow;

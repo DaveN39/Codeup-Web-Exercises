@@ -4,51 +4,41 @@
 	<title>Calculator Project</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="calculator-project.css">
-	<script type = "text/javascript" src="calculator-project.js"></script>
 </head>
 <body>
-	<div class="box">
-	<div class="display"><input type="text" readonly size="30" id="d"></div>
-	<div class="display"><input type="text" readonly size="30" id="d"></div>
-	<div class="display"><input type="text" readonly size="30" id="d"></div>
-	<div class="keys">
-
-    <p>
-    	<input type="button" class="button black" value="AC" onclick='ac("")'>
-    	<input type="button" class="button black" value="C" onclick='c("")'>
-    	<input type="button" class="button black" value="%" onclick='v()'>
-    	<input type="button" class="button gray" value="/" onclick='v("/")'>
-    </p>
-
-    <p>
-    	<input type="button" class="button blue" value="7" onclick='v("7")'>
-    	<input type="button" class="button blue" value="8" onclick='v("8")'>
-    	<input type="button" class="button blue" value="9" onclick='v("9")'>
-    	<input type="button" class="button gray" value="*" onclick='v("*")'>
-    </p>
-
-    <p>
-    	<input type="button" class="button blue" value="4" onclick='v("4")'>
-    	<input type="button" class="button blue" value="5" onclick='v("5")'>
-    	<input type="button" class="button blue" value="6" onclick='v("6")'>
-    	<input type="button" class="button gray" value="-" onclick='v("-")'>
-    </p>
-
-    <p>
-    	<input type="button" class="button blue" value="1" onclick='v("1")'>
-    	<input type="button" class="button blue" value="2" onclick='v("2")'>
-    	<input type="button" class="button blue" value="3" onclick='v("3")'>
-    	<input type="button" class="button gray" value="+" onclick='v("+")'>
-    </p>
-
-    <p>
-    	<input type="button" class="button blue" value="mc" onclick='v()'>
-    	<input type="button" class="button blue" value="0" onclick='v("0")'>
-    	<input type="button" class="button blue" value="." onclick='v(".")'>
-    	<input type="button" class="button gray" value="=" onclick='e()'>
-    </p>
-
-	</div>
-	</div>
+	<div id="display">
+    <input type="text" name="display" readonly size="20" id="firstInput" value="">
+    <br> 
+    <input type="text" readonly size="5" id="opInput" value="">
+    <br>
+    <input type="text" name="display3" readonly size="20" id="lastInput" value="">
+    <br>
+    <div id="keypad">
+        <br>
+        <button class="number" value="1" id="N1">1</button>
+        <button class="number" value="2" id="N2">2</button>
+        <button class="number" value="3" id="N3">3</button>
+        <button class="operator" value="+" id="Add">+</button>
+        <br>
+        <button class="number" value="4" id="N4">4</button>
+        <button class="number" value="5" id="N5">5</button>
+        <button class="number" value="6" id="N6">6</button>
+        <button class="operator" value="-" id="Sub">-</button>
+        <br>
+        <button class="number" value="7" id="N7">7</button>
+        <button class="number" value="8" id="N8">8</button>
+        <button class="number" value="9" id="N9">9</button>
+        <button class="operator" value="*" id="Mult">*</button>
+        <br>
+        <button class="number" value="." id="Dcml">.</button>
+        <button class="number" value="0" id="N0">0</button>
+        <button value="=" id="Eql">=</button>
+        <button class="operator" value="/" id="Div">/</button>
+        <br>
+        <button value="C" id="Clr">C</button>
+    </div>
+</div>
+	<script type = "text/javascript" src="calculator-project.js"></script>
+	
 </body>
 </html>
