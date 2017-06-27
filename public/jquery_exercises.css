@@ -1,0 +1,10 @@
+$('.codeup').css('border', '1px solid #F00');
+/*<!-- [p.codeup, prevObject: jQuery.fn.init(1)] -->*/
+$('#codeup').css('border', '1px solid #F00');
+/*<!-- [h1#codeup] -->*/
+$("li") .css("font-size", "20px");
+/*<!-- (5) [li, li, li, li, li, prevObject: jQuery.fn.init(1)] -->*/
+$("li") .css("background-color", "yellow");
+/*<!-- (5) [li, li, li, li, li, prevObject: jQuery.fn.init(1)] -->*/
+$("h1, p, li").css("background-color", "yellow");
+/*<!-- (7) [h1#codeup, li, li, li, li, li, p.codeup, prevObject: jQuery.fn.init(1)] -->*/
