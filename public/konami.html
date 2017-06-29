@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+    	<p>Please type Konami code to proceed.</p>
+	<form>
+    	
+	</form>
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        "use strict";
+
+        var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var input = [];
+
+
+        $(document).keyup(function(event){ 
+        	input.push(event.keyCode);
+        	console.log(input);
+        	if (input.toString() === konamiCode.toString()) {
+        		alert("You have added 30 lives!");
+        	}
+            // else if (input.toString() != konamiCode.toString()) {
+            // 	alert("You will DIE!");
+            // };
+        });
+        console.log(konamiCode);
+	
+	
+    </script>
+</body>
+</html>

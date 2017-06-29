@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery FAQ Exercises</title>
+	<style type="text/css">
+		
+		.invisible {
+			display: none;
+		}
+
+		dt {
+			text-decoration: underline;
+			margin-top: 20px;
+			margin-bottom: 10px;
+			font-weight: 900;
+		}
+	</style>
+</head>
+<body>
+	<h1>10 FAQs about national parks.</h1>
+
+		<dl>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+  			<dt>Who is the director of the National Park Service?</dt>
+  			<dd class="invisible">Michael T. Reynolds</dd>
+		</dl>
+
+		<button>Toggle Answers</button>
+
+	<script src="js/jquery-3.2.1.js"></script>
+	<script>
+
+		$(document).ready(function() {
+			"use strict";
+            $('button').click(function() {
+                
+				$("dd").toggleClass("invisible");
+            });
+			$("dt").click(function() {
+  				$(this).css("background", "yellow");
+            
+        });
+// 		
+});
+		
+</script>
+</body>
+</html>
