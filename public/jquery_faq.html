@@ -18,10 +18,10 @@
 </head>
 <body>
 	<h1>10 FAQs about national parks.</h1>
-	<!-- <div>
-		<h1>Would you like to sign up for our newsletter?</h1> 
-		<span><button id="newsletter">X</button></span>
-	</div> -->
+	<div>
+		<h1>Would you like to sign up for our newsletter?</h1><span>X</span>
+		<h2 id="register">Please register!</h2>
+	</div>
 		<h3 id="national-parks-heading">National Parks</h3>
 			<ul id="national-parks">
     			<li>Arches</li>
@@ -47,7 +47,7 @@
     			<li>Comanche Park</li>
 			</ul>
 
-		<button>Last Parks Yellow</button>
+		<!-- <button>Last Parks Yellow</button> -->
 
 	<script src="js/jquery-3.2.1.js"></script>
 	<script>
@@ -55,19 +55,21 @@
 		$(document).ready(function() {
 			"use strict";
 		});
-            $('button').click(function(e) {
-				$("ul").each(function(index, element) {
-					$(this).children().last().css('background-color', 'yellow');
-				}); 
-        });
+            $('span').click(function() {
+				$(this).parent().hide();
+			}); 
+       
 
         $('h3').click(function() {
-        	$(this).next().children().css('font-weight', 'bold');
+        	$(this).next().slideToggle();
         });
 
-		$('li').click(function() {
-			$(this).parent().children().first().css('color', 'blue');
-		});
+		$('#register').hide().delay(8000).fadeIn();
+		
+		
+
+	
+
 				
 
 // // 		
