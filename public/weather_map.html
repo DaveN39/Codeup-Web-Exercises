@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Weather Map</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/weatherMap.css">
+</head>
+<body>
+	<h1>SA Weather Map</h1>
+		<div>Friday</div>
+		<div>Saturday</div>
+		<div>Sunday</div>
+	<table id="temp">
+    <thead>
+        <tr>
+            <th>Daytime temp</th>
+            <th>Evening temp</th>
+            <th>High temp</th>
+            <th>Low temp</th>
+        </tr>
+    </thead>
+    <tbody id="insertWeather"></tbody>
+</table>
+
+	<main>
+	</main>
+		 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script>
+			(function() {
+				"use strict";
+
+				var requestWeather = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+				APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8" , 
+				id: 4726206 ,
+				units: "imperial",
+				cnt: 3
+			});
+
+				requestWeather.done(function(data, status, request) {
+					console.log(data);
+					console.log(data.list[0].temp.max)
+					var htmlString = "";
+        	
+        		data.list.forEach(function(forecast) {
+            htmlString += "<tr>";
+            htmlString += "<td>" + forecast.temp.day + "</td>";
+            htmlString += "<td>" + forecast.temp.night + "</td>";
+            htmlString += "<td>" + forecast.temp.max + "</td>";
+            htmlString += "<td>" + forecast.temp.min + "</td>";
+            htmlString += "</tr>";
+        	});      
+        		$("#insertWeather").html(htmlString);
+				});
+
+				requestWeather.fail(function(jqXHR, status, error){
+					console.log(status);
+					console.log(error);
+			});
+
+		
+			
+		 
+		 })();
+		</script>
+	
+</body>
+</html>

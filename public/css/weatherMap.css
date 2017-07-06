@@ -1,0 +1,36 @@
+div {
+	margin: 15px;
+	color: blue;
+    text-decoration: underline;
+    text-align: ;
+}
+
+/*table {
+	padding: 0px 0px 0px 0px;
+	margin: 0px;
+    width: 700px;
+    height: 150px;
+    border: 1px solid #000;
+    position: static;
+    text-align: center;
+}*/
+
+thead {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 100px;
+    width: 500px 0px 0px 0px;
+    height: 150px;
+    border: 1px solid #000;
+    position: static;
+    text-align: center;
+}
+
+table#temp {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 100px 100px;
+    width: 500px 0px 0px 0px;
+    height: 150px;
+    border: 1px solid #000;
+    position: static;
+    text-align: center;
+}

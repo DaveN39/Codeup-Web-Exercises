@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<title>My First Blog Post</title>
+</head>
+<body>
+<h1>My First Blog!</h1>
+	<button onclick="myFunction()">Update Blog</button>
+	<div id="posts">
+	</div>
+<script>
+function myFunction() {
+    location.reload();
+}
+</script>
+<script type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+	
+// (function() {
+    "use strict";
+    
+    // TODO: Create an ajax GET request for /data/blog.json
+        var getRequest = $.get("/data/blog.json");
+        getRequest.done(function(data, status) {
+            addBlogsToPage(data);
+        });
+        getRequest.fail(function(jqXhr, status, error) {
+             console.log(status);
+             console.log(error);
+        });
+        function addBlogsToPage(data) {
+            var blog = data[0];
+            var htmlToAdd = ("");
+            data.forEach(function(blog) {
+
+                    htmlToAdd +=
+                    "<tr>" +
+                    "<td>" + blog.title + "</td>" +
+                    "<td>" + blog.content + "</td>" +
+                    "<td>" + blog.categories.join (", ") + "</td>" + "</tr>";
+        });
+
+        $("#insertPosts").html(htmlToAdd);
+
+    }
+})();
+
+</script>
+</body>
+</html>
