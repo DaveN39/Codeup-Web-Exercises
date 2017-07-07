@@ -7,27 +7,28 @@
 	<link rel="stylesheet" type="text/css" href="css/weatherMap.css">
 </head>
 <body>
-	<h1>SA Weather Map</h1>
-		<div>Friday</div>
+	<h1>San Antonio Weather Map</h1>
+		<!-- <div>Friday</div>
 		<div>Saturday</div>
-		<div>Sunday</div>
+		<div>Sunday</div> -->
 	<table id="temp">
-    <thead>
-        <tr>
-            <th>Daytime temp</th>
-            <th>Evening temp</th>
-            <th>High temp</th>
-            <th>Low temp</th>
-        </tr>
-    </thead>
+    <!-- <thead> -->
+            <!-- <td>Friday</td>
+            <td>Saturday</td>
+            <td>Sunday</td> -->
+            
+    <!-- </thead> -->
     <tbody id="insertWeather"></tbody>
 </table>
+<div id="map-canvas1"></div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABXJA24mvcKFR587Ut4aGhEh2rXuDL92I"></script>
+	<script type="text/javascript" src="weather_map.js"></script>
 
 	<main>
 	</main>
 		 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+		 <script></script>
 		<script>
 			(function() {
 				"use strict";
@@ -45,11 +46,15 @@
 					var htmlString = "";
         	
         		data.list.forEach(function(forecast) {
+        			var date = new Date(forecast.dt * 1000);
+					var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+					var day = daysOfWeek[date.getDay()];
+					console.log(date);
             htmlString += "<tr>";
-            htmlString += "<td>" + forecast.temp.day + "</td>";
-            htmlString += "<td>" + forecast.temp.night + "</td>";
-            htmlString += "<td>" + forecast.temp.max + "</td>";
-            htmlString += "<td>" + forecast.temp.min + "</td>";
+            htmlString += "<td>" + day + " Morning Temp: " + forecast.temp.day + "   Humidity: " + forecast.humidity + "</td>";
+            htmlString += "<td>" + " Evening Temp: " + forecast.temp.night + "   Clouds: " + forecast.clouds + "</td>";
+            htmlString += "<td>" + " High Temp: " + forecast.temp.max + "   Rain: " + forecast.rain + "</td>";
+            htmlString += "<td>" + " Low Temp: " + forecast.temp.min + "   Wind: " + forecast.speed + "</td>";
             htmlString += "</tr>";
         	});      
         		$("#insertWeather").html(htmlString);
