@@ -4,72 +4,32 @@
 	<meta charset="utf-8">
 	<title>Weather Map</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/weatherMap.css">
 </head>
 <body>
-	<h1>San Antonio Weather Map</h1>
-		<!-- <div>Friday</div>
-		<div>Saturday</div>
-		<div>Sunday</div> -->
-	<table id="temp">
-    <!-- <thead> -->
-            <!-- <td>Friday</td>
-            <td>Saturday</td>
-            <td>Sunday</td> -->
-            
-    <!-- </thead> -->
-    <tbody id="insertWeather"></tbody>
-</table>
+<div class="container">
+	<h1> Weather Map App </h1>
+	<br>
+	<div id="insertWeather"></div>
+</div>
 <div id="map-canvas1"></div>
+
+	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABXJA24mvcKFR587Ut4aGhEh2rXuDL92I"></script>
 	<script type="text/javascript" src="weather_map.js"></script>
+	
+</body>
+</html>
+        			
 
-	<main>
-	</main>
-		 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
-		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		 <script></script>
-		<script>
-			(function() {
-				"use strict";
+        		
 
-				var requestWeather = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-				APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8" , 
-				id: 4726206 ,
-				units: "imperial",
-				cnt: 3
-			});
-
-				requestWeather.done(function(data, status, request) {
-					console.log(data);
-					console.log(data.list[0].temp.max)
-					var htmlString = "";
-        	
-        		data.list.forEach(function(forecast) {
-        			var date = new Date(forecast.dt * 1000);
-					var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
-					var day = daysOfWeek[date.getDay()];
-					console.log(date);
-            htmlString += "<tr>";
-            htmlString += "<td>" + day + " Morning Temp: " + forecast.temp.day + "   Humidity: " + forecast.humidity + "</td>";
-            htmlString += "<td>" + " Evening Temp: " + forecast.temp.night + "   Clouds: " + forecast.clouds + "</td>";
-            htmlString += "<td>" + " High Temp: " + forecast.temp.max + "   Rain: " + forecast.rain + "</td>";
-            htmlString += "<td>" + " Low Temp: " + forecast.temp.min + "   Wind: " + forecast.speed + "</td>";
-            htmlString += "</tr>";
-        	});      
-        		$("#insertWeather").html(htmlString);
-				});
-
-				requestWeather.fail(function(jqXHR, status, error){
-					console.log(status);
-					console.log(error);
-			});
+			
 
 		
 			
 		 
-		 })();
-		</script>
 	
-</body>
-</html>

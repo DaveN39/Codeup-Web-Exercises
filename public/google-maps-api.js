@@ -5,7 +5,7 @@
  		// Set our map options
         var mapOptions1 = {
             // Set the zoom level
-            zoom: 10,
+            zoom: 5,
 
             // This sets the center of the map at our location
             center: {
