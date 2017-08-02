@@ -1,5 +1,4 @@
 <?php 
-// codeup.dev/php_lec/PHP_III/include_ex/ping_include.php
 require_once "functions.php";
 function pageController()
 {

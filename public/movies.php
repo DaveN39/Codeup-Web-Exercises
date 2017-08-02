@@ -70,11 +70,18 @@ function pageController($allMovies)
     // If the $_GET request is empty, show every movie
 
     // If $_GET['genre'] holds 'adventure', make $movies hold movies with 'adventure' as a genre.
-
-    $data = [];
-
+    if(isset($_GET['genre'])) {
+        $genre = $_GET['genre'];
+        $movies = [];
+        foreach ($allMovies as $movie) {
+            if(in_array($genre, $movie['genre'])) {
+                $movies[] = $movie;
+            }
+        }
+    } else {
     // set $data['movies'] to hold all movies (unless another request is made.)
-    $data['movies'] = $allMovies;
+        $data['movies'] = $allMovies;
+    }
 
     return $data;
 }
@@ -95,11 +102,15 @@ extract(pageController($allMovies));
 
         <section class="form">
             <form>
+                <h3>Search for movies below.</h3>
                 <!-- Add an input to search by "title" -->
+                <input type="search" id="mySearch" placeholder="Enter movie title">
                 <!-- Add a form that has an input for "genre" -->
+                <input type="search" id="mySearch" placeholder="Enter movie genre">
                 <!-- Add submit button -->
+                <button onclick="myFunction()">Submit</button>
             </form>
-        </section>
+        </section><br>
 
         <section class="links">
             <!-- Add a link that will show all movies  -->
