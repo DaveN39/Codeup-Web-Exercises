@@ -1,4 +1,6 @@
 <?php
+require_once "functions.php";
+
 session_start();
 
 	function pageController() 
@@ -6,7 +8,7 @@ session_start();
 		$data = [];
 
 		if(isset($_SESSION['logged_in_user'])) {
-			header("Location: authorized.php");
+			header("Location: /authorized.php");
 			die();
 		}
 		$message = "message";

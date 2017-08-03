@@ -1,13 +1,13 @@
 <?php 
 require_once "functions.php";
-function pageController()
-{
-    $data = [];
-    $data['score'] = inputGet('score');
     function gameOver()
     {
         $data['score'] = 0;
     }
+function pageController()
+{
+    $data = [];
+    $data['score'] = inputGet('score');
     if (inputGet('ball') == 'miss') {
         gameOver();
     }

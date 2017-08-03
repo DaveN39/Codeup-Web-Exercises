@@ -6,7 +6,10 @@ session_start();
 			header("Location: /login.php");
 			die();
 		}
-		$username = isset($_SESSION['logged_in_user']);
+		$username = $_SESSION['logged_in_user'];
+		$data = [];
+		$data['username'] = $username;
+		return $data;
 	}
 	extract(pageController());
 
@@ -21,12 +24,12 @@ session_start();
 <body>
 
 	<div class="header">
-		<a href="/">Your App Name</a>
+		<a href="/"></a>
 	</div>
 
-	<h1>Authorized!</h1>
-	<h2>Welcome guest!</h2>
-	<span>or <a href="login.php">register here</a></span>
+	<h1>Authorization granted!</h1>
+	<h2>Welcome <?= $username?>!</h2>
+	<span><a href="login.php">register here</a></span>
 
 	<form action="login.php" method="POST">
 		

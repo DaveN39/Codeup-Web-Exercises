@@ -1,88 +1,53 @@
 <?php
+require 'allMovies.php';
+require_once 'functions.php';
 
+function getMoviesByGenre($genre, $allMovies) {
+    $movies = [];
+    foreach ($allMovies as $movie) {
+        if(in_array($genre, $movie['genre'])) {
+            $movies[] = $movie;
+        }
+    }
+    return $movies;
+}
 
-$allMovies = [
-    [
-        'title' => 'The Godfather',
-        'release' => 1972,
-        'rating' => '9.2',
-        'genre' => ['crime', 'drama']
-    ],
-    [
-        'title' => 'The Godfather: Part II',
-        'release' => 1974,
-        'rating' => '9.0',
-        'genre' => ['crime', 'drama']
-    ],
-    [
-        'title' => 'The Dark Knight',
-        'release' => 2008,
-        'rating' => '9.0',
-        'genre' => ['action', 'crime', 'drama']
-
-    ],
-    [
-        'title' => 'The Good, The Bad, and The Ugly',
-        'release' => '1966',
-        'rating' => '8.9',
-        'genre' => ['western']
-    ],
-    [
-        'title' => 'Forest Gump',
-        'release' => 1994,
-        'rating' => '8.7',
-        'genre' => ['comedy', 'drama', 'romance']
-    ],
-    [
-        'title' => 'Seven Samurai',
-        'release' => 1954,
-        'rating' => '8.6',
-        'genre' => ['adventure', 'drama']
-    ],
-    [
-        'title' => 'Back to the Future',
-        'release' => 1985,
-        'rating' => '8.5',
-        'genre' => ['adventure', 'comedy', 'sci-fi']
-    ],
-    [
-        'title' => 'The Lion King',
-        'release' => 1994,
-        'rating' => '8.5',
-        'genre' => ['animation', 'adventure', 'drama']
-    ],
-    [
-        'title' => 'Alien',
-        'release' => 1979,
-        'rating' => '8.5',
-        'genre' => ['horror', 'sci-fi']
-    ],
-    [
-        'title' => '2001: A Space Odyssey',
-        'release' => 1968,
-        'rating' => '8.3',
-        'genre' => ['adventure', 'sci-fi']
-    ],
-];
-
+function getMoviesByTitle($title, $allMovies) {
+    $movies = [];
+    foreach ($allMovies as $movie) {
+        if(stirpos($movie['title'], $title) !== false) {
+            $movies[] = $movie;
+        }
+    }
+    return $movies;
+}
 function pageController($allMovies)
 {
-    // If the $_GET request is empty, show every movie
+    $data = [];
+    $title = inputGet('title');
+    $release = inputGet('release');
 
-    // If $_GET['genre'] holds 'adventure', make $movies hold movies with 'adventure' as a genre.
-    if(isset($_GET['genre'])) {
-        $genre = $_GET['genre'];
+
+    if(!empty($genre) && empty($title)) {
+        $data['movies'] = getMoviesByGenre($genre, $allMovies);
+    } elseif (!empty($title) && empty($genre)) {
+        $data['movies'] = getMoviesByTitle($title, $allMovies);
+    } elseif (!empty($title) && !empty($genre)) {
+        $moviesWithGenre = getMoviesByGenre($genre, $allMovies);
+        $moviesWithGenreAndTitle = getMoviesByTitle($title, $moviesWithGenre);
+        $data['movie'] = $moviesWithGenreAndTitle;
+    } else {
+        $data['movies'] = $allMovies;
+    }
+    if(!empty($release)) {
         $movies = [];
         foreach ($allMovies as $movie) {
-            if(in_array($genre, $movie['genre'])) {
+            if($movie['release'] > $release) {
                 $movies[] = $movie;
             }
         }
-    } else {
-    // set $data['movies'] to hold all movies (unless another request is made.)
-        $data['movies'] = $allMovies;
+        $data['movies'] = $movies;
     }
-
     return $data;
 }
 
@@ -101,28 +66,30 @@ extract(pageController($allMovies));
         <h1>Welcome to MovieLister!</h1>
 
         <section class="form">
-            <form>
+            <form method="GET" action="movies.php">
                 <h3>Search for movies below.</h3>
                 <!-- Add an input to search by "title" -->
-                <input type="search" id="mySearch" placeholder="Enter movie title">
+                <label for='title'>Title</label>
+                <input type="text" id="title" name="title" placeholder="Search by title">
                 <!-- Add a form that has an input for "genre" -->
-                <input type="search" id="mySearch" placeholder="Enter movie genre">
+                <label for='genre'>Genre</label>                
+                <input type="text" id="genre" name="genre" placeholder="Search by genre">
                 <!-- Add submit button -->
-                <button onclick="myFunction()">Submit</button>
+                <button type="submit">Search for movies!</button>
             </form>
         </section><br>
 
         <section class="links">
             <!-- Add a link that will show all movies  -->
-            <a href="">Show all movies</a>
+            <a href="movies.php">Show all movies</a>
 
             <!-- Add a link that will show only movies with a release date after 2000 -->
-            <a href="">All movies released after 2000</a>
+            <a href="movies.php?release=2000">All movies released after 2000</a>
 
             <!-- Add a link that shows all movies w/ the comedy genre -->
-            <a href="">Show only comedies</a>
+            <a href="movies.php?genre=comedy">Show only comedies</a>
             
-            <a href="">Show all Sci-Fi movies</a>
+            <a href="movies.php?genre=sci-fi">Show all Sci-Fi movies</a>
             
         </section>
         <section class="movies">
