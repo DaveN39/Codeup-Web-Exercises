@@ -1,20 +1,19 @@
 <?php
 class Log 
 {
-    public $username;
-    public $email;
-    public $password;
-    public $isLoggedIn = false;
+    public $filename;
+    public $handle;
     
     public function __construct($prefix = 'log') 
     {
         $this->filename = $prefix . '-' . date('Y-m-d') . '.log';
         $this->handle = fopen($this->filename, 'a');
     }
-    public function logMessage($logLevel, $message) 
+    public function logMessage($level, $message) 
     {
-        $time = date('Y-m-d H:i:s');
-        fwrite($this->handle, $time . " [$logLevel] $message" . PHP_EOL);
+        $timestamp = date('Y-m-d H:i:s');
+        $logEntry = PHP_EOL . "$timestamp - $level - $message";
+        fwrite($this->handle, $logEntry);
     }
     public function info($message)
     {

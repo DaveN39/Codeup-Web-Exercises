@@ -1,6 +1,5 @@
 <?php
-  
-function pageController()
+  function pageController()
 {
     $data = [];
     $data['count'] = isset($_GET['count']) ? $_GET['count'] : 0;

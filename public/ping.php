@@ -1,16 +1,15 @@
 <?php 
+require_once "../Input.php";
 require_once "functions.php";
+
     function gameOver()
     {
-        $data['score'] = 0;
+        $data['count'] = 0;
     }
 function pageController()
 {
     $data = [];
-    $data['score'] = inputGet('score');
-    if (inputGet('ball') == 'miss') {
-        gameOver();
-    }
+    $data['count'] = Input::get('count', 0);
     return $data;
 }
 extract(pageController());
@@ -40,9 +39,9 @@ extract(pageController());
     <main class="container">
 
         <h1>Ping</h1>   
-        <a href="pong.php?ball=hit&score=<?=escape($score + 1)?>" class="btn btn-primary">HIT</a> 
+        <a href="pong.php?ball=hit&count=<?= $count + 1?>" class="btn btn-primary">HIT</a> 
         <a href="pong.php?ball=miss" class="btn btn-primary">MISS</a>  
-        <h3>Score <?=$score?></h3>   
+        <h3>Score <?=$count?></h3>   
 
     </main>
     
