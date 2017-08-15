@@ -1,17 +1,16 @@
 <?php 
-    require_once __DIR__ . "/../parks_login.php";
     require_once __DIR__ . "/../db_connect.php";
     require_once __DIR__ . "/../Input.php";
-    require_once __DIR__ . "/parks.php";
+
     function getParksCount($connection) {
-        $countQuery = "SELECT COUNT(*) FROM parks";
+        $countQuery = "SELECT COUNT(*) FROM national_parks";
         $stmt = $connection->query($countQuery);
         $count = (int) $stmt->fetchColumn();
         return $count;
     }
     function getAllParks($connection, $limit = 2, $offset = 0)
     {
-        $selectString = "SELECT * FROM parks LIMIT :limit OFFSET :offset";
+        $selectString = "SELECT * FROM national_parks LIMIT :limit OFFSET :offset";
         $preparedStmt = $connection->prepare($selectString);
         $preparedStmt->bindValue(':limit', (int) $limit, PDO::PARAM_INT);
         $preparedStmt->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
