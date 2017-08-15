@@ -10,7 +10,7 @@ $parks = explode("\n", trim($contents));
 array_shift($parks);
 // trim each 
 $parks = array_map('trim', $parks);
-$statement = "INSERT INTO parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)";
+$statement = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)";
 $preparedStmt = $connection->prepare($statement);
 foreach($parks as $park) {
     $park = explode(",", $park);
@@ -19,5 +19,5 @@ foreach($parks as $park) {
     $preparedStmt->bindValue(':date_established', $park[2], PDO::PARAM_STR);
     $preparedStmt->bindValue(':area_in_acres', $park[3], PDO::PARAM_STR);
     $preparedStmt->bindValue(':description', $park[4], PDO::PARAM_STR);
-    $preparedStmt->execute();
+    $preparedStmt->insert();
 }

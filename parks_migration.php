@@ -7,8 +7,8 @@ $createTableQuery = 'CREATE TABLE national_parks(
     location VARCHAR(165) NOT NULL,
     date_established DATE NOT NULL,
     area_in_acres DOUBLE NOT NULL,
-    description TEXT,
+    description TEXT NOT NULL,
     PRIMARY KEY (id)
 )';
-$dbc->exec('DROP TABLE IF EXISTS national_parks');
-$dbc->exec($createTableQuery);
+$connection->exec('DROP TABLE IF EXISTS national_parks');
+$connection->exec($createTableQuery);
