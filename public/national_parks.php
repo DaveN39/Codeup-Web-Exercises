@@ -58,7 +58,8 @@
     <main class="container">
         
         <h1 class="text-center">National Parks</h1>
-
+        <section class="col-md-8">
+            
         <div class="row text-center">
             
             <a class="col-lg-4" href="?page=<?=$page?>&recordsPerPage=4">4 Per Page</a>
@@ -98,6 +99,32 @@
                 
             </div>
         </div>
+        </section>
+        <section class="col-md-4">
+            <h3>Add a new park!</h3>
+            <form method="POST" action="national_parks.php">
+              <div class="form-group">
+                <label for="name">Park name</label>
+                <input type="text" class="form-control invalid" name="name" id="name" placeholder="Park name" autofocus required>
+              </div>
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
+              </div>
+              <div class="form-group">
+                <label for="area_in_acres">Area in acres</label>
+                <input type="text" class="form-control" id="area_in_acres" name="area_in_acres" placeholder="Area in acres" required>
+              </div>
+              <div class="form-group">
+                <label for="date_established">Date Established</label>
+                <input type="date" class="form-control" id="date_established" name="date_established" placeholder="Date established" required>
+              </div>
+
+              <textarea name="description" class="form-control" rows="3" placeholder="Provide park description here..."></textarea>
+              
+              <button type="submit" class="btn btn-default">Add park</button>
+            </form>
+        </section>
         
     </main>
 

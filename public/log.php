@@ -1,15 +1,18 @@
 <?php
 class Log 
 {
-    public $filename;
-    public $handle;
+    private $filename;
+    private $handle;
     
     public function __construct($prefix = 'log') 
     {
+        if(!is_string($prefix)) {
+            $prefix = 'log';
+        }
         $this->filename = $prefix . '-' . date('Y-m-d') . '.log';
         $this->handle = fopen($this->filename, 'a');
     }
-    public function logMessage($level, $message) 
+    protected function logMessage($level, $message) 
     {
         $timestamp = date('Y-m-d H:i:s');
         $logEntry = PHP_EOL . "$timestamp - $level - $message";
