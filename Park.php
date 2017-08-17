@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/parks_login.php";
+require_once "Model_exercise.php";
 /**
  * A Class for interacting with the national_parks database table
  *
@@ -29,7 +30,7 @@ require_once __DIR__ . "/parks_login.php";
  *      $park->insert();
  *
  */
-class Park
+class Park extends Model
 {
     ///////////////////////////////////
     // Static Methods and Properties //
@@ -73,22 +74,22 @@ class Park
         // TODO: return an array of Park objects
         
         self::dbConnect();
-        $select = "SELECT * from national_parks";
-        $statement = self::$connection->query($select);
-        
-        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $parks = [];
-        foreach($results as $result) {
-            $park = new Park();
-            $park->id = $result['id'];
-            $park->name = $result['name'];
-            $park->location = $result['location'];
-            $park->areaInAcres = $result['area_in_acres'];
-            $park->dateEstablished = $result['date_established'];
-            $park->description = $result['description'];
-            $parks[] = $park;
-        }
-        return $parks;
+        // $select = "SELECT * from national_parks";
+        $statement = self::$connection->query('select * from national_parks');
+    
+        $results = $statement->fetchAll(PDO::FETCH_OBJ);
+        // $parks = [];
+        // foreach($results as $result) {
+        //     $park = new Park();
+        //     $park->id = $result['id'];
+        //     $park->name = $result['name'];
+        //     $park->location = $result['location'];
+        //     $park->areaInAcres = $result['area_in_acres'];
+        //     $park->dateEstablished = $result['date_established'];
+        //     $park->description = $result['description'];
+        //     $parks[] = $park;
+        // }
+        return $results;
     }
     /**
      * returns $resultsPerPage number of results for the given page number
@@ -116,16 +117,16 @@ class Park
     /**
      * properties that represent columns from the database
      */
-    public $id;
-    public $name;
-    public $location;
-    public $dateEstablished;
-    public $areaInAcres;
-    public $description;
+    // public $id;
+    // public $name;
+    // public $location;
+    // public $dateEstablished;
+    // public $areaInAcres;
+    // public $description;
     /**
      * inserts a record into the database
      */
-    public function insert() {
+    protected function insert() {
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $connection static property to create a perpared statement for
         //       inserting a record into the parks table
@@ -144,5 +145,23 @@ class Park
     
         $stmt->execute();
         $this->id = self::$connection->lastInsertId();
+    }
+    protected function update(){
+        return 'HELLO';
+    }
+    public static function find($id)
+    {   
+        self::dbConnect();
+        $query = "SELECT * from " . static::$table . " where id = :id";
+        $statement = self::$connection->prepare($query);
+
+        $statement->bindValue(':id', $id. PDO::PARAM_INT);
+        $statement->execute();
+
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $park = new Park($result);
+
+        return $park;
     }
 }

@@ -2,9 +2,19 @@
 
 require_once "Park.php";
 
+$park = new Park();
 
+$park->id = 1;
+$park->location = 'somewhere';
 
-// test dbConnect() and Park::$connection
+$anotherPark = Park::find(2);
+$anotherPark->description = "REALLY NICE PARK";
+
+$anotherPark->save;
+
+?>
+
+<!-- // test dbConnect() and Park::$connection
 
 	// Park::dbConnect();
 	// var_dump(Park::$connection);
@@ -42,13 +52,13 @@ require_once "Park.php";
 
 // test inserting a new park
 
-$park = new Park();
+// $park = new Park();
 
-$park->name = "Frio River Park";
-$park->location = "Texas";
-$park->areaInAcres = 700;
-$park->dateEstablished = '1913-02-02';
-$park->description = 'Yadda yadda';
-$park->insert();
+// $park->name = "Frio River Park";
+// $park->location = "Texas";
+// $park->areaInAcres = 700;
+// $park->dateEstablished = '1913-02-02';
+// $park->description = 'Yadda yadda';
+// $park->insert();
 
-echo $park->id;
+echo $park->id; -->
